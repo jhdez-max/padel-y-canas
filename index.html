@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel & Cañas · Diciembre 2026</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7f6;
+      color: #18332d;
+    }
+
+    header {
+      background: linear-gradient(135deg, #075e54, #13a37f);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 34px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      opacity: .9;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin: 25px auto;
+    }
+
+    .stat {
+      background: white;
+      border-radius: 14px;
+      padding: 15px 28px;
+      min-width: 190px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      color: #0b8066;
+    }
+
+    .calendar {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10px 20px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .day {
+      background: white;
+      border-radius: 15px;
+      padding: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+      border-top: 6px solid #13a37f;
+    }
+
+    .day.holiday {
+      background: #fff9da;
+      border-top-color: #efb600;
+    }
+
+    .day.closed {
+      background: #ebf6f0;
+      border-top-color: #075e54;
+    }
+
+    .date {
+      font-size: 21px;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    .holiday-label {
+      color: #946c00;
+      font-size: 13px;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .status {
+      margin: 10px 0;
+      font-weight: bold;
+      color: #0b8066;
+    }
+
+    .players {
+      margin: 10px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .player {
+      background: #f1f5f4;
+      margin: 5px 0;
+      padding: 7px 9px;
+      border-radius: 7px;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: center;
+    }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .join {
+      background: #13a37f;
+      color: white;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .leave {
+      background: #e45a5a;
+      color: white;
+      font-size: 11px;
+      padding: 6px 8px;
+    }
+
+    .closed-label {
+      background: #075e54;
+      color: white;
+      text-align: center;
+      padding: 8px;
+      border-radius: 7px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    dialog {
+      border: 0;
+      border-radius: 15px;
+      padding: 25px;
+      width: min(92%, 430px);
+      box-shadow: 0 15px 60px rgba(0,0,0,.25);
+    }
+
+    dialog::backdrop {
+      background: rgba(0,0,0,.55);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 13px;
+      border: 1px solid #bbb;
+      border-radius: 7px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .save {
+      flex: 1;
+      background: #13a37f;
+      color: white;
+    }
+
+    .cancel {
+      background: #ddd;
+    }
+
+    #message {
+      max-width: 700px;
+      margin: 10px auto;
+      text-align: center;
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎾 Pádel & Cañas 🍻</h1>
+  <p>Diciembre 2026 · Madrid</p>
+</header>
+
+<div class="stats">
+
+  <div class="stat">
+    <strong 
