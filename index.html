@@ -7,17 +7,19 @@
 <title>Pádel & Cañas</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#ecfdf5,#ffffff,#ecfeff);
+  background: linear-gradient(135deg, #ecfdf5, #ffffff, #ecfeff);
   color: #1e293b;
 }
 
 header {
-  background: linear-gradient(90deg,#065f46,#10b981);
+  background: linear-gradient(90deg, #065f46, #10b981);
   color: white;
   padding: 30px 20px;
   text-align: center;
@@ -39,7 +41,7 @@ main {
   padding: 25px 18px;
 }
 
-.contadores {
+.stats {
   display: flex;
   justify-content: center;
   gap: 25px;
@@ -47,57 +49,57 @@ main {
   margin-bottom: 28px;
 }
 
-.contador {
+.stat {
   min-width: 200px;
-  padding: 18px 28px;
+  padding: 18px;
   text-align: center;
   background: white;
   border: 1px solid #e2e8f0;
   border-radius: 18px;
 }
 
-.contador span {
+.stat span {
   display: block;
   color: #64748b;
   font-size: 13px;
   font-weight: bold;
 }
 
-.contador strong {
+.stat strong {
   font-size: 32px;
 }
 
-.leyenda {
+.legend {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 22px;
 }
 
-.etiqueta {
+.pill {
   padding: 8px 14px;
   border-radius: 20px;
   font-size: 13px;
   font-weight: bold;
 }
 
-.finde {
-  color: #047857;
+.weekend {
   background: #d1fae5;
+  color: #047857;
 }
 
-.festivo {
-  color: #b45309;
+.holiday-pill {
   background: #fef3c7;
+  color: #b45309;
 }
 
-.calendario {
+.calendar {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
 
-.dia {
+.day {
   min-height: 145px;
   padding: 17px;
   background: white;
@@ -106,147 +108,13 @@ main {
   box-shadow: 0 3px 10px rgba(0,0,0,.05);
 }
 
-.dia-festivo {
+.holiday {
   background: #fffbeb;
   border-color: #fcd34d;
 }
 
-.nombre-dia {
+.dow {
   color: #64748b;
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-}
-
-.numero {
-  margin-top: 3px;
-  font-size: 32px;
-  font-weight: 900;
-}
-
-.festivo-nombre {
-  margin-top: 7px;
-  color: #b45309;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.disponible {
-  margin-top: 18px;
-  color: #059669;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-footer {
-  padding: 25px;
-  color: #64748b;
-  text-align: center;
-  font-size: 12px;
-}
-
-@media(max-width:760px) {
-  .calendario {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  header h1 {
-    font-size: 34px;
-  }
-}
-
-@media(max-width:430px) {
-  .calendario {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1>🎾 Pádel & Cañas 🍻</h1>
-  <p>Diciembre 2026 · Madrid</p>
-</header>
-
-<main>
-
-  <div class="contadores">
-
-    <div class="contador">
-      <span>POSIBLES PARTIDOS</span>
-      <strong>14</strong>
-    </div>
-
-    <div class="contador">
-      <span>PARTIDOS CERRADOS</span>
-      <strong>0</strong>
-    </div>
-
-  </div>
-
-  <div class="leyenda">
-    <span class="etiqueta finde">
-      Viernes · Sábados · Domingos
-    </span>
-
-    <span class="etiqueta festivo">
-      Festivos Madrid
-    </span>
-  </div>
-
-  <div class="calendario">
-
-    <div class="dia">
-      <div class="nombre-dia">Viernes</div>
-      <div class="numero">4</div>
-      <div class="disponible">＋ Disponible</div>
-    </div>
-
-    <div class="dia">
-      <div class="nombre-dia">Sábado</div>
-      <div class="numero">5</div>
-      <div class="disponible">＋ Disponible</div>
-    </div>
-
-    <div class="dia">
-      <div class="nombre-dia">Domingo</div>
-      <div class="numero">6</div>
-      <div class="disponible">＋ Disponible</div>
-    </div>
-
-    <div class="dia dia-festivo">
-      <div class="nombre-dia">Lunes</div>
-      <div class="numero">7</div>
-      <div class="festivo-nombre">
-        Traslado del Día de la Constitución
-      </div>
-      <div class="disponible">＋ Disponible</div>
-    </div>
-
-    <div class="dia dia-festivo">
-      <div class="nombre-dia">Martes</div>
-      <div class="numero">8</div>
-      <div class="festivo-nombre">
-        Inmaculada Concepción
-      </div>
-      <div class="disponible">＋ Disponible</div>
-    </div>
-
-    <div class="dia">
-      <div class="nombre-dia">Viernes</div>
-      <div class="numero">11</div>
-      <div class="disponible">＋ Disponible</div>
-    </div>
-
-    <div class="dia">
-      <div class="nombre-dia">Sábado</div>
-      <div class="numero">12</div>
-      <div class="disponible">＋ Disponible</div>
-    </div>
-
-    <div class="dia">
-      <div class="nombre-dia">Domingo</div>
-      <div class="numero">13</div>
-      <
